@@ -1,0 +1,5 @@
+/* Overriding doc settings */
+
+#logoarea, #librarylink, #title_and_swipe, #swipelink, #sidebar, #tabs, #search-box, #search-field, #search-button, #package-select, #highlight-checkbox, #checkbox, #search-results, div.search-result, #search-tab {
+    display: none !important;
+}
