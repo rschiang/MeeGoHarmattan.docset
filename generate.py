@@ -39,9 +39,9 @@ for title, path in indices:
     type = 'Class'      # Gstreamer class
   elif title.startswith('gl') and path.startswith('opengl') or title.startswith('egl') and path.startswith('egl/'):
     type = 'Function'	# Open GL C-style functions
-  elif 'class' in path:
+  elif 'class' in path and ' ' not in title:
     type = 'Class'	# Platform SDK class
-  elif 'struct' in path:
+  elif 'struct' in path and ' ' not in title:
     type = 'Struct'	# Platform SDK struct
   elif path.endswith('/main.html') or path.endswith('/index.html'):
     type = 'Library'	# Platform Library overview
@@ -54,7 +54,7 @@ for title, path in indices:
   for expr, alt_type in translators:
     match = expr.match(title)
     if match:
-      title = match.group(0)
+      title = match.group(1)
       type = alt_type
   
   write_entry(title, type, path)
